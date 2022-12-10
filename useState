@@ -18,3 +18,36 @@ const App = () => {
 }
 
 export default App
+
+
+
+
+// ========================================================================
+
+import React, { useState } from 'react'
+
+const App = () => {
+
+
+  // define value and function 
+ const[name, setName] =  useState('Hi Mansih');
+
+ // useState with toggle functionality
+ const changeHandler =()=>{
+  if(name == 'Hi Manish'){
+  setName("Welcome here on my Repo Let's Learn")
+  }else{
+    setName('Hi Manish')
+  }
+ }
+
+  return (
+    <React.Fragment>
+    <h1>{name}</h1>
+    <button onClick={changeHandler}>Click me</button>
+
+    </React.Fragment>
+  )
+}
+
+export default App
