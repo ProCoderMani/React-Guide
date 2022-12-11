@@ -243,3 +243,48 @@ export default App
 
 
 
+
+
+
+
+// ==========================================================================
+//============ use-Effect fetch api with fetch function===============
+
+import React, { useEffect, useState } from 'react'
+
+const App = () => {
+
+  const url = 'https://api.github.com/users'
+
+  const [gituser, setGitUers] = useState([])
+
+  const userdata = async() =>{
+      const response = await fetch(url)
+      const data = await response.json()
+      setGitUers(data)
+  }
+
+  useEffect(()=>{
+    userdata()
+  },[])
+
+  return (
+    <div>
+      <h1>GitHub Users Info</h1>
+      <ul>
+        {gituser.map((userdata)=>{
+          const {id, login, avatar_url, html_url} = userdata
+
+          return <li key={id}>
+            <img src={avatar_url} alt={login}/>
+            <h1>{login}</h1>
+            <a href={html_url}>  <h2>Visit Profile</h2> </a>
+          </li>
+        })}
+      </ul>
+      
+    </div>
+  )
+}
+
+export default App
