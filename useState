@@ -100,3 +100,38 @@ const App = () => {
 
 export default App
 
+
+
+
+
+
+
+
+// ======================================================================
+//      Counter + - 0
+
+import { useState } from 'react'
+
+const App = () => {
+  const [value, setValue] = useState(0)
+  
+  function addHandler() {
+    setValue(value+1)
+  }
+  function removeHandler() {
+    setValue(value-1)
+  }
+  return (
+    <div>
+      <h1>The Value Counter - {value}</h1>
+      
+      <button onClick={addHandler}>Add</button>
+      <button onClick={()=>setValue(0)}>Reset</button>
+      <button onClick={removeHandler}>Decrement</button>
+    </div>
+  )
+}
+
+export default App
+
+
